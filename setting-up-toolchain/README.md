@@ -29,7 +29,7 @@ vi package.json
 mkdir pages
 ```
 
-#### Run the project with this command
+#### Run project
 ```
 npm run dev
 ```

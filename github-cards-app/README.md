@@ -1,12 +1,18 @@
-# GitHub Cards App
+# GitHub Cards App for practicing class and function components
 
-See here the original app:
-https://jscomplete.com/playground/rgs2.7
+#### Install React
+```
+npx create-react-app github-cards-app
+```
+#### Run project
+```
+npm start
+```
 
-## Application written with class components (original)
-https://github.com/azwick/playground/blob/master/github-cards-app/src/index-classes.js
+#### Original live version of this app
+[JScomplete playground](https://jscomplete.com/playground/rgs2.7)
 
-## Application written with function components
-https://github.com/azwick/playground/blob/master/github-cards-app/src/index.js
-(Start with `npm start`)
+#### Differences between class components and function components
+[Application written with class components](https://github.com/azwick/playground/blob/master/github-cards-app/src/index-classes.js)
 
+[ToDo: Application written with function components](https://github.com/azwick/playground/blob/master/github-cards-app/src/index.js)
