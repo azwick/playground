@@ -1,0 +1,1 @@
+self.__BUILD_MANIFEST = {__rewrites:[],"/ImageToggleOnScroll":["static\u002Fchunks\u002Fpages\u002FImageToggleOnScroll.js"],"/_error":["static\u002Fchunks\u002Fpages\u002F_error.js"],"/syntax":["static\u002Fchunks\u002Fpages\u002Fsyntax.js"],sortedPages:["\u002FImageToggleOnScroll","\u002F_app","\u002F_error","\u002Fsyntax"]};self.__BUILD_MANIFEST_CB && self.__BUILD_MANIFEST_CB()

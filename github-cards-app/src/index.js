@@ -31,13 +31,12 @@ const Form = function(state, props) {
     event.preventDefault();
     const resp = await axios.get(`https://api.github.com/users/${state.userName}`);
     props.onSubmit(resp.data);
-    // ToDo: setState -> useState 
-    setState({ userName: ''});
+    const [userNameInput, setUserNameInput] = useState();
+    state = {userName: {userNameInput}};
   };
   return (
     <form onSubmit={handleSubmit}>
-          {/* ToDo: setState -> useState */ }
-      <input type="text" value={state.userName} onChange={event => setState({ userName: event.target.value})} placeholder="GitHub username" required />
+      <input type="text" onChange={(e) => {setUserNameInput(e.target.value)} placeholder="GitHub username" required />
       <button>Add card</button>
     </form>
   );
@@ -53,6 +52,7 @@ const App = function(props, state) {
     setState = (prevState => ({
       profiles: [...prevState.profiles, profileData]
     }))
+    const [profileList, setprofileList] = useState([]);
   };
   return (
     <div>
