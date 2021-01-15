@@ -5,12 +5,11 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 
-const testData = [
-    {name: "Dan Abramov", avatar_url: "https://avatars0.githubusercontent.com/u/810438?v=4", company: "@facebook"},
-    {name: "Sophie Alpert", avatar_url: "https://avatars2.githubusercontent.com/u/6820?v=4", company: "Humu"},
-    {name: "Sebastian Markbåge", avatar_url: "https://avatars2.githubusercontent.com/u/63648?v=4", company: "Facebook"},
-];
-
+// const testData = [
+//     {name: "Dan Abramov", avatar_url: "https://avatars0.githubusercontent.com/u/810438?v=4", company: "@facebook"},
+//     {name: "Sophie Alpert", avatar_url: "https://avatars2.githubusercontent.com/u/6820?v=4", company: "Humu"},
+//     {name: "Sebastian Markbåge", avatar_url: "https://avatars2.githubusercontent.com/u/63648?v=4", company: "Facebook"},
+// ];
 
 const CardList = (props) => (
   <div>
@@ -18,7 +17,7 @@ const CardList = (props) => (
   </div>
 );
 
-const Card = function(props) {
+const Card = (props) => {
   const profile = props;
 
   return (
@@ -30,9 +29,11 @@ const Card = function(props) {
       </div>
     </div>
   )
-}
-const Form = function(props) {
+};
+
+const Form = (props) => {
   const [userName, setUserName] = useState("");
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const resp = await axios.get(`https://api.github.com/users/${userName}`);
@@ -51,46 +52,23 @@ const Form = function(props) {
       <button>Add card</button>
     </form>
   );
-}
+};
 
 const App = ({title}) => {
-  const state = {
-    profiles: testData,
-    // profiles: [],
-  };
+  const [profiles, setProfiles] = useState([]);
+
   const addNewProfile = (profileData) => {
-    console.log('App', profileData);
-  }
-  // const [myState, setMyState] = useState([]);
+    setProfiles([...profiles, profileData]);
+  };
 
   return (
     <>
       <div className="header">{title}</div>
       <Form onSubmit={addNewProfile} />
-      <CardList profiles={state.profiles}/>
+      <CardList profiles={profiles}/>
     </>
   );
 };
-
-// class App extends React.Component {
-//   state = {
-//     profiles: [],
-//   };
-//   addNewProfile = (profileData) => {
-//     this.setState(prevState => ({
-//       profiles: [...prevState.profiles, profileData]
-//     }))
-//   };
-//   render() {
-//     return (
-//       <div>
-//         <div className="header">{this.props.title}</div>
-//         <Form onSubmit={this.addNewProfile} />
-//         <CardList profiles={this.state.profiles} />
-//       </div>
-//     );
-//   }
-// }
 
 ReactDOM.render(
   <App title="The GitHub Cards App" />,
