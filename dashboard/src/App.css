@@ -1,7 +1,12 @@
+* {
+  box-sizing: border-box;
+}
+
 :root {
   --lightSage: #cbd5bd;
   --sage: #94a47b;
   --darkSage: #77815C;
+  --orange: orange;
 }
 
 body {
@@ -35,6 +40,7 @@ code {
   font-weight: 100;
   color: var(--sage);
   width: 530px;
+  text-align: center;
 }
 
 .date {
