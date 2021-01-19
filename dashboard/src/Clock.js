@@ -18,7 +18,7 @@ const Clock = () => {
   }
 
   return (
-    <>
+    <div>
       <div className="clock">
         {/* {date.toLocaleTimeString()} <br/> */}
         {date.toLocaleString('de-DE', timeOptions)}
@@ -26,7 +26,7 @@ const Clock = () => {
       <div className="date">
         {date.toLocaleString('de-DE', dateOptions)}
       </div>
-    </>
+    </div>
   );
 }
 

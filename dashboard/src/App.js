@@ -7,8 +7,15 @@ import React from 'react';
 const App = () => {
   return (
     <div className="App">
-      <Clock/>
-      {/* <Checklist title='Prio A' count='3' /> */}
+      <div className="grid">
+        <Clock/>
+        <div>
+          <h1>Prio Checkliste</h1>
+          <Checklist title='Prio A' count='3' />
+          <Checklist title='Prio B' count='3' />
+          <Checklist title='Prio C' count='3' />
+        </div>
+      </div>
     </div>
   );
 }
