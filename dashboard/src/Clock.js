@@ -5,13 +5,15 @@ const Clock = () => {
   const timeOptions = { hour: 'numeric', minute: 'numeric' };
   const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
+  const myClock = date.toLocaleString('de-DE', timeOptions);
+
   useEffect(() => {
     let timer = setInterval( () => tick(), 1000 );
 
     return function cleanup() {
       clearInterval(timer);
     };
-  });
+  }, [myClock]);
 
   function tick() {
     setDate(new Date());
@@ -21,7 +23,7 @@ const Clock = () => {
     <div>
       <div className="clock">
         {/* {date.toLocaleTimeString()} <br/> */}
-        {date.toLocaleString('de-DE', timeOptions)}
+        {myClock}
       </div>
       <div className="date">
         {date.toLocaleString('de-DE', dateOptions)}
@@ -32,7 +34,7 @@ const Clock = () => {
 
 export default Clock;
 
-{/* Notes:
+/* Notes:
 
   useEffect
   > Replaces componentDidMount and componentWillUnmount
@@ -46,4 +48,4 @@ export default Clock;
   toLocaleTimeString() // 21:14:18
   > https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleTimeString
 
-*/}
+*/
