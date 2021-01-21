@@ -1,15 +1,19 @@
 import './Checklist.css';
 
-import React, {createElement, useState} from 'react';
+import React, {useState} from 'react';
+
+// key={Math.random()} 
 
 const List = (props) => (
   <ul className="list">
     {props.items.map(item => <Item deleteItem={props.deleteItem} {...item} />)}
   </ul>
- );
+);
 
 const Item = (props) => {
   const [itemValue, setItemValue] = useState("");
+  const [isConfirmed, setConfirm] = useState(false);
+  const [done, setDone] = useState(false);
 
   const handleChange = (e) => {
     setItemValue(e.target.value);
@@ -17,22 +21,29 @@ const Item = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newToDo = createElement('div', null, {itemValue});
-    // <div className="content">{itemValue}</div>
-    console.log(newToDo);
+    setConfirm(!isConfirmed);
+  }
+
+  const toggleState = () => {
+    setDone(!done);
   }
 
   return (
-    <li class="item">
-     <form onSubmit={handleSubmit}>
-      <input 
-        type="text" 
-        onChange={handleChange}
-        value={itemValue} 
-        placeholder="Das ist mein neuer ToDo Punkt..."
-      />
-     </form>
-     <span onClick={props.deleteItem} class="delete">✗</span>
+    <li className="item">
+      {!isConfirmed ? ( 
+        <form onSubmit={handleSubmit}>
+          <input 
+            type="text" 
+            onChange={handleChange}
+            value={itemValue} 
+            placeholder="Bezeichnung..." 
+            required
+          />
+        </form>
+      ) : (
+        <div onClick={toggleState} className={done ? 'done' : ''}>{itemValue}</div>
+      )}
+     <span onClick={props.deleteItem} className="delete">✗</span>
     </li>
   );
 }
@@ -51,7 +62,11 @@ const Checklist = ({title, maxCount}) => {
     setItem([...items, newItem]);
     setCount(count + 1);
   }
-  const deleteItem = () => {
+
+  const deleteItem = (el) => {
+    // const newList = items.filter((item) => item.el !== el);
+    // setItem([newList]);
+
     console.log('Delete Item!');
     setCount(count - 1);
   }
