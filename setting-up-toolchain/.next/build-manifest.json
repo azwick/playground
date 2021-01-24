@@ -14,10 +14,15 @@
     "static/development/_ssgManifest.js"
   ],
   "pages": {
-    "/ImageToggleOnScroll": [
+    "/UseContext": [
       "static/chunks/main.js",
       "static/chunks/webpack.js",
-      "static/chunks/pages/ImageToggleOnScroll.js"
+      "static/chunks/pages/UseContext.js"
+    ],
+    "/UseReducer": [
+      "static/chunks/main.js",
+      "static/chunks/webpack.js",
+      "static/chunks/pages/UseReducer.js"
     ],
     "/_app": [
       "static/chunks/main.js",
@@ -28,11 +33,6 @@
       "static/chunks/main.js",
       "static/chunks/webpack.js",
       "static/chunks/pages/_error.js"
-    ],
-    "/syntax": [
-      "static/chunks/main.js",
-      "static/chunks/webpack.js",
-      "static/chunks/pages/syntax.js"
     ]
   },
   "ampFirstPages": []

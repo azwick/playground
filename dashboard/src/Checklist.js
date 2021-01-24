@@ -2,8 +2,6 @@ import './Checklist.css';
 
 import React, {useState} from 'react';
 
-// key={Math.random()} 
-
 const List = (props) => (
   <ul className="list">
     {props.items.map(item => <Item deleteItem={props.deleteItem} {...item} />)}
