@@ -2,12 +2,18 @@ import './Checklist.css';
 
 import React, {useState} from 'react';
 
+//
+// List.js
+//
 const List = (props) => (
   <ul className="list">
-    {props.items.map(item => <Item deleteItem={props.deleteItem} {...item} />)}
+    {props.items.map((item, index) => <Item key={index} handleDeletion={props.handleDeletion} {...item} />)}
   </ul>
 );
 
+//
+// Item.jsx
+//
 const Item = (props) => {
   const [itemValue, setItemValue] = useState("");
   const [isConfirmed, setConfirm] = useState(false);
@@ -41,17 +47,21 @@ const Item = (props) => {
       ) : (
         <div onClick={toggleState} className={done ? 'done' : ''}>{itemValue}</div>
       )}
-     <span onClick={props.deleteItem} className="delete">✗</span>
+     <span onClick={props.handleDeletion} className="delete">✗</span>
     </li>
   );
 }
 
-const Counter = ({count, maxCount}) => {
-  return (
-    <span className="counter">{`${count} von ${maxCount}`}</span>
-  );
-}
+//
+// Counter.jsx
+//
+const Counter = ({count, maxCount}) => (
+  <span className="counter">{`${count} von ${maxCount}`}</span>
+)
 
+//
+// Checklist.jsx
+//
 const Checklist = ({title, maxCount}) => {
   const [items, setItem] = useState([]);
   const [count, setCount] = useState(0);
@@ -61,11 +71,11 @@ const Checklist = ({title, maxCount}) => {
     setCount(count + 1);
   }
 
-  const deleteItem = (el) => {
-    // const newList = items.filter((item) => item.el !== el);
-    // setItem([newList]);
+  const handleDeletion = (el) => {
+    const updateList = items.filter((item) => item.el !== el);
+    setItem([updateList]);
 
-    console.log('Delete Item!');
+    console.log(el);
     setCount(count - 1);
   }
 
@@ -74,8 +84,10 @@ const Checklist = ({title, maxCount}) => {
       <h2 className="title">
         {title} <Counter count={count} maxCount={maxCount}/>
       </h2>
-      <List deleteItem={deleteItem} items={items}/>
-      <button onClick={addItem}>+</button>
+      <List handleDeletion={handleDeletion} items={items}/>
+      {count < maxCount &&
+        <button onClick={addItem}>+</button>
+      }
     </div>
   );
 }
