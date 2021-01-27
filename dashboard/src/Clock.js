@@ -13,7 +13,7 @@ const Clock = () => {
     return function cleanup() {
       clearInterval(timer);
     };
-  }, [myClock]);
+  }, [myClock]); // ToDo: I'm not sure what to write here...
 
   function tick() {
     setDate(new Date());
@@ -22,7 +22,6 @@ const Clock = () => {
   return (
     <div>
       <div className="clock">
-        {/* {date.toLocaleTimeString()} <br/> */}
         {myClock}
       </div>
       <div className="date">
@@ -33,19 +32,3 @@ const Clock = () => {
 }
 
 export default Clock;
-
-/* Notes:
-
-  useEffect
-  > Replaces componentDidMount and componentWillUnmount
-
-  setInterval()
-  > https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval
-
-  clearInterval()
-  > https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/clearInterval
-
-  toLocaleTimeString() // 21:14:18
-  > https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleTimeString
-
-*/

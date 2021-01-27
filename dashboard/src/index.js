@@ -1,9 +1,25 @@
 import './index.css';
 
-import App from './App';
+import Checklist from './Checklist';
+import Clock from './Clock';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import reportWebVitals from './reportWebVitals';
+
+const App = () => {
+  return (
+    <div className="App">
+      <div className="grid">
+        <Clock/>
+        <div>
+          <h1>Prio Checkliste</h1>
+          <Checklist title='Prio A' maxCount={3} />
+          <Checklist title='Prio B' maxCount={5} />
+          <Checklist title='Prio C' maxCount={7} />
+        </div>
+      </div>
+    </div>
+  );
+}
 
 ReactDOM.render(
   <React.StrictMode>
@@ -12,7 +28,4 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+export default App;

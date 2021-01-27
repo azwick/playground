@@ -72,10 +72,10 @@ const Checklist = ({title, maxCount}) => {
   }
 
   const handleDeletion = (el) => {
-    const updateList = items.filter((item) => item.el !== el);
+    const updateList = items.filter((item) => item.el !== el);  // ToDo: I'm not sure what to write here to make it work...
     setItem([updateList]);
+    console.log([updateList]);
 
-    console.log(el);
     setCount(count - 1);
   }
 
@@ -92,4 +92,11 @@ const Checklist = ({title, maxCount}) => {
   );
 }
 
-export default Checklist
+export default Checklist;
+
+/*
+Further ideas for ToDos:
+-> Save the checklist items in the localStorage
+-> Focus the input field of a created item
+-> Make items draggable for changing the position (only inside of their own list)
+*/
