@@ -8,16 +8,12 @@ const Clock = () => {
   const myClock = date.toLocaleString('de-DE', timeOptions);
 
   useEffect(() => {
-    let timer = setInterval( () => tick(), 1000 );
+    let timer = setInterval( () => setDate(new Date()), 1000 );
 
     return function cleanup() {
       clearInterval(timer);
     };
-  }, [myClock]); // ToDo: I'm not sure what to write here...
-
-  function tick() {
-    setDate(new Date());
-  }
+  }, []);
 
   return (
     <div>
