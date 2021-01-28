@@ -1,0 +1,21 @@
+[{
+    "id": 1,
+    "content": "Give dog a bath",
+    "complete": true
+  }, {
+    "id": 2,
+    "content": "Do laundry",
+    "complete": true
+  }, {
+    "id": 3,
+    "content": "Vacuum floor",
+    "complete": false
+  }, {
+    "id": 4,
+    "content": "Feed cat",
+    "complete": true
+  }, {
+    "id": 5,
+    "content": "Change light bulbs",
+    "complete": false
+}]
