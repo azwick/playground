@@ -11,12 +11,19 @@ import axios from 'axios';
 //     {name: "Sebastian Markbåge", avatar_url: "https://avatars2.githubusercontent.com/u/63648?v=4", company: "Facebook"},
 // ];
 
+
+//
+// CardList.js
+//
 const CardList = (props) => (
   <div>
     {props.profiles.map(profile => <Card key={profile.id} {...profile} />)}
   </div>
 );
 
+//
+// Card.js
+//
 const Card = (props) => {
   const profile = props;
 
@@ -31,6 +38,9 @@ const Card = (props) => {
   )
 };
 
+//
+// Form.js
+//
 const Form = (props) => {
   const [userName, setUserName] = useState("");
 
@@ -54,6 +64,9 @@ const Form = (props) => {
   );
 };
 
+//
+// App.js
+//
 const App = ({title}) => {
   const [profiles, setProfiles] = useState([]);
 

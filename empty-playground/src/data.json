@@ -1,0 +1,25 @@
+[{
+    "id": 1,
+    "name": "Kreuz",
+    "symbol": "♣",
+    "trump": false,
+    "color": "schwarz"
+  }, {
+    "id": 2,
+    "name": "Pik",
+    "symbol": "♠",
+    "trump": false,
+    "color": "schwarz"
+  }, {
+    "id": 3,
+    "name": "Herz",
+    "symbol": "♥",
+    "trump": true,
+    "color": "rot"
+  }, {
+    "id": 4,
+    "name": "Karo",
+    "symbol": "♦",
+    "trump": false,
+    "color": "rot"
+ }]

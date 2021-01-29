@@ -12,3 +12,53 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+section {
+  margin: 50px 0;
+}
+
+.space {
+  margin: 5px 20px;
+  display: inline-block;
+}
+
+.pill {
+  margin: 5px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: inline-block;
+  background: silver;
+}
+
+.marked {
+  background-color: lightsalmon;
+}
+
+.stroke {
+  text-decoration: line-through;
+}
+
+.red {
+  background-color: crimson;
+  color: white;
+}
+
+.black {
+  background-color: black;
+  color: white;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  margin: 0;
+  padding: 0;
+}
+
+.space {
+  margin: 20px;
+}
