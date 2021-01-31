@@ -15,7 +15,8 @@ const List = () => {
 
     return (
         <section className="jokes">
-            {jokes.map(joke => {
+            {/* Slice - limits items */}
+            {jokes.slice(0, 4).map(joke => {
                 return (
                     <Item key={joke.id} joke={joke}/>
                 )
