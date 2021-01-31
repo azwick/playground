@@ -62,3 +62,20 @@ section {
 .space {
   margin: 20px;
 }
+
+.jokes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.jokes div {
+  display: inline-block;
+  padding: 20px;
+  border: 1px solid mediumseagreen;
+  margin: 20px;
+  line-height: 1.4;
+}
+
+.test {
+  color: green;
+}
