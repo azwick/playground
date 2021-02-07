@@ -1,3 +1,4 @@
+import FilterIt from './FilterIt';
 import GetIt from './GetIt';
 // import TutorialRandomJoke from './TutorialRandomJoke';
 import MapIt from './MapIt';
@@ -15,7 +16,11 @@ function App() {
       <hr/>
       <h1>Toggle it</h1>
       <ToggleIt/>
+      <hr/>
+      <h1>Filter it</h1>
+      <FilterIt/>
       {/* <TutorialRandomJoke/> */}
+      <br/><br/><br/><br/><br/>
     </div>
   );
 }

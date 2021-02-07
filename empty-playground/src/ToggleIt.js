@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 
+import data from './dataToggle.json';
+
 //
 // Toggle Button
 //
@@ -21,28 +23,6 @@ const ToggleOnOff = () => {
 //
 // Toggle List Item
 //
-const data = [{
-    "id": 901,
-    "toDo": "Küche aufräumen",
-    "inProgress": true
-}, {
-    "id": 902,
-    "toDo": "Keller ausmisten",
-    "inProgress": true
-}, {
-    "id": 903,
-    "toDo": "Stube saugen",
-    "inProgress": true
-}, {
-    "id": 904,
-    "toDo": "Terasse fegen",
-    "inProgress": true
-}, {
-    "id": 905,
-    "toDo": "Staub wischen",
-    "inProgress": true
-}];
-
 const ToggleListItem = () => {
     const [toDoList, setToDoList] = useState(data);
 
