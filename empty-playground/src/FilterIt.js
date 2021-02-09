@@ -9,22 +9,22 @@ const buttonData = [{
     "id": 1,
     "active": true,
     "value": "Show all",
-    "params": "all"
+    "category": "all"
 },{
     "id": 2,
     "active": false,
     "value": "Kitchen",
-    "params": "kitchen"
+    "category": "kitchen"
 }, {
     "id": 3,
     "active": false,
     "value": "Living Room",
-    "params": "livingroom"
+    "category": "livingroom"
 }, {
     "id": 4,
     "active": false,
     "value": "Basement",
-    "params": "basement"
+    "category": "basement"
 }]
 
 const IntroduceFilter = () => {
@@ -53,6 +53,11 @@ const IntroduceFilter = () => {
 
             <ul className="checklist">
                 {data.map((item) => <li key={item.id} id={item.id}>{item.title}</li>)}
+            </ul>
+
+            <h3>New</h3>
+            <ul className="checklist">
+                {console.log(<li>{data.filter((item) => item.category === "kitchen" )}</li>)}
             </ul>
         </>
     )
