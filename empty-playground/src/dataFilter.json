@@ -2,25 +2,25 @@
     "id": 501,
     "title": "Aufräumen",
     "inProgress": true,
-    "room": "kitchen"
+    "filterValue": "kitchen"
 }, {
     "id": 502,
     "title": "Ausmisten",
     "inProgress": true,
-    "room": "basement"
+    "filterValue": "basement"
 }, {
     "id": 503,
     "title": "Saugen",
     "inProgress": true,
-    "room": "livingroom"
+    "filterValue": "livingroom"
 }, {
     "id": 504,
     "title": "Fegen",
     "inProgress": true,
-    "room": "basement"
+    "filterValue": "basement"
 }, {
     "id": 505,
     "title": "Staub wischen",
     "inProgress": true,
-    "room": "kitchen"
+    "filterValue": "kitchen"
 }]

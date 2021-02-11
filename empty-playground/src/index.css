@@ -28,6 +28,7 @@ section {
   border-radius: 5px;
   display: inline-block;
   background: silver;
+  border: 1px dotted white;
 }
 
 .marked {
@@ -101,4 +102,22 @@ button {
 .checklist li {
   padding: 5px 0;
   cursor: pointer;
+}
+
+.split {
+  display: flex;
+  justify-content: space-around;
+}
+
+.split .splitBox {
+  padding: 40px;
+}
+
+form .group {
+  display: block;
+  margin-bottom: 10px;
+}
+
+form .group input {
+  margin: 0 10px;
 }
