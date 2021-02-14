@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 
+//
 // Use State
+//
 const UseStateExample1 = () => {
     const [name, setName] = useState('Click a Button!');
 
@@ -20,7 +22,9 @@ const UseStateExample1 = () => {
     );
 }
 
+//
 // Use State with mapping
+//
 const UseStateExample2 = () => {
     const buttonData = [{
         id: 1,

@@ -1,9 +1,22 @@
 import React, {useState} from 'react';
 
+import cardData from './data.json';
 import data from './dataFilter.json';
 
 //
-// Introduce Filter
+// Simple Filter
+//
+const SimpleFilter = () => {
+    const newData = data.filter((items) => items.filterValue === 'kitchen');
+    return (
+        <ul className="checklist">
+            {newData.map((newItem, index) => <li key={index}><b>Filtered (from kitchen):</b> {newItem.title}</li>)}
+        </ul>
+    );
+}
+
+//
+// Change Filter with useState
 //
 const buttonArray = [{
     "id": 1,
@@ -27,7 +40,7 @@ const buttonArray = [{
     "filterValue": "basement"
 }]
 
-const IntroduceFilter = () => {
+const ChangeFilter = () => {
     const [myFilter, setMyFilter] = useState(data);
     const [on, setOn] = useState(false);
 
@@ -61,10 +74,39 @@ const IntroduceFilter = () => {
     )
 }
 
+//
+// Deletion Filter
+//
+const DeletionFilter = () => {
+    const [deletionList, setDeletionList] = useState(cardData);
+
+    const handleDeletion = (id) => {
+        const newList = deletionList.filter((updateList) => updateList.id !== id);
+        setDeletionList(newList);
+    }
+
+    return (
+        <div className="elements">
+            {deletionList.map((item) => {
+                return (
+                    <div key={item.id} id={item.id}>
+                        {item.name}<button onClick={() => handleDeletion(item.id)}>X</button>
+                    </div>
+                )
+            })}
+        </div>
+    );
+}
+
 const FilterIt = () => {
     return (
         <>
-            <IntroduceFilter/>
+            <SimpleFilter/>
+            <br/><br/>
+            <ChangeFilter/>
+            <br/><br/>
+            <h3>Delete me:</h3>
+            <DeletionFilter/>
         </>
     );
 }
