@@ -4,7 +4,7 @@ import React, {useEffect, useState} from 'react';
 
 import data from "./data.json";
 
-const ChecklistNew = ({title, maxCount}) => {
+const Checklist = ({title, maxCount}) => {
   const [toDos, setToDos] = useState(data);
   const [count, setCount] = useState(toDos.length);
 
@@ -62,4 +62,4 @@ const ChecklistNew = ({title, maxCount}) => {
   );
 }
 
-export default ChecklistNew;
+export default Checklist;

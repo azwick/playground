@@ -5,7 +5,7 @@ const Clock = () => {
   const timeOptions = { hour: 'numeric', minute: 'numeric' };
   const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
-  const myClock = date.toLocaleString('de-DE', timeOptions);
+  const clockDisplay = date.toLocaleString('de-DE', timeOptions);
 
   useEffect(() => {
     let timer = setInterval( () => setDate(new Date()), 1000 );
@@ -18,7 +18,7 @@ const Clock = () => {
   return (
     <div>
       <div className="clock">
-        {myClock}
+        {clockDisplay}
       </div>
       <div className="date">
         {date.toLocaleString('de-DE', dateOptions)}

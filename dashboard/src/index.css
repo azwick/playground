@@ -43,16 +43,40 @@
   h2 {
     font-weight: 300;
   }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 50px;
+    width: 100%;
+    max-width: 960px;
+  }
   
   .grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 100px;
+    grid-template-columns: 1fr;
+    margin-top: 50px;
+    width: 100%;
   }
-  
+
+  @media (min-width: 640px) {
+    .grid {
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 30px;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .grid {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
   .clock {
     font-size: 150px;
     font-weight: 100;
+    text-align: center;
     color: var(--sage);
   }
   
