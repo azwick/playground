@@ -2,15 +2,16 @@ import './Checklist.css';
 
 import React, {useEffect, useState} from 'react';
 
+import Item from './Item';
 import data from "./data.json";
 
 const Checklist = ({title, maxCount}) => {
+  // const [toDos, setToDos] = useState([]);
   const [toDos, setToDos] = useState(data);
   const [count, setCount] = useState(toDos.length);
 
   useEffect(() => {
     let counter = setCount(toDos.length);
-
     return function cleanup() {
       clearInterval(counter);
     };
@@ -18,54 +19,38 @@ const Checklist = ({title, maxCount}) => {
 
   const handleToggle = (e) => {
       e.preventDefault()
-
       let mapped = toDos.map(item => {
-        return (item.id == (e.currentTarget.parentNode.id) ? { ...item, complete: !item.complete } : { ...item});
+        return (item.id === (e.currentTarget.parentNode.id) ? { ...item, complete: !item.complete } : { ...item});
       });
       setToDos(mapped);
   }
 
   const handleDeletion = (e) => {
       e.preventDefault()
-
       let filteredList = toDos.filter(item => {
-        return (item.id != e.currentTarget.parentNode.id);
+        return (item.id !== e.currentTarget.parentNode.id);
       });
       setToDos(filteredList);
       setCount(count - 1);
   }
 
-  // ToDo: Fix behaviour of add & update items
   const addItem = () => {
-    let copy = [...toDos];
     const keyId = ((count + 1) + title.replace(/[^a-zA-Z0-9]/g,''));
-    copy = [...copy, { id: keyId, content: null, complete: false }];
-    setToDos(copy);
+    const copyItem = [...toDos, { id: keyId, content: null, complete: false }];
+    setToDos(copyItem);
     setCount(count + 1);
   }
 
-  const updateItem = (userContent) => {
-    const keyId = (((count + 1) + title + userContent).replace(/[^a-zA-Z0-9]/g,''));
-    setToDos([...toDos, { id: keyId, content: userContent, complete: false }]);
-  }
-
-  const InputForm = () => {
-    const [ inputValue, setInputValue ] = useState('');
-
-    const handleChange = (e) => {
-      setInputValue(e.currentTarget.value);
-    }
-
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      return updateItem(inputValue);
-    }
-
-    return (
-      <form onSubmit={handleSubmit}>
-          <input value={inputValue} type="text" onChange={handleChange} placeholder="Your ToDo..." required/>
-      </form>
-    )
+  const updateItem = (userContent, e) => {
+    const newList = toDos.map((item) => {
+      if (item.id === e.currentTarget.parentNode.id) {
+        const keyId = (count + title + userContent).replace(/[^a-zA-Z0-9]/g,'');
+        const updatedItem = {...item, id: keyId, content: userContent };
+        return updatedItem;
+      }
+      return item;
+    });
+    setToDos(newList);
   }
 
   return (
@@ -76,10 +61,7 @@ const Checklist = ({title, maxCount}) => {
       <ul className="list">
         {toDos.map((item) => {
           return (
-            <li key={item.id} id={item.id} className="item">
-              {item.content ? <div onClick={handleToggle} className={item.complete ? 'done' : ''}>{item.content}</div> : <InputForm/> }
-              <span onClick={handleDeletion} className="delete">✗</span>
-            </li>
+              <Item key={item.id} item={item} handleToggle={handleToggle} handleDeletion={handleDeletion} updateItem={updateItem} />
             )
           })}
       </ul>

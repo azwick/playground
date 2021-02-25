@@ -1,13 +1,13 @@
 [{
-    "id": 1,
+    "id": "1",
     "content": "Give dog a bath",
     "complete": false
   }, {
-    "id": 2,
+    "id": "2",
     "content": "Do laundry",
     "complete": true
   }, {
-    "id": 3,
+    "id": "3",
     "content": "Vacuum floor",
     "complete": false
   }]
