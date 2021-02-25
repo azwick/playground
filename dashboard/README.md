@@ -2,9 +2,8 @@
 
 #### ToDo
 - [ ] Split code into separate components
-- [ ] Delete test data
-- [ ] Create empty state
-- [ ] Save items at local storage (?)
+- [x] Disable test data
+- [x] Create empty state
 - [ ] Create a seperate repository for the dashboard dummy
 - [ ] Send code to review
 - [ ] Do review annotations

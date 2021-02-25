@@ -3,11 +3,12 @@ import './Checklist.css';
 import React, {useEffect, useState} from 'react';
 
 import Item from './Item';
-import data from "./data.json";
+
+// import data from "./testData.json";
 
 const Checklist = ({title, maxCount}) => {
-  // const [toDos, setToDos] = useState([]);
-  const [toDos, setToDos] = useState(data);
+  // const [toDos, setToDos] = useState(data);
+  const [toDos, setToDos] = useState([]);
   const [count, setCount] = useState(toDos.length);
 
   useEffect(() => {
@@ -34,11 +35,13 @@ const Checklist = ({title, maxCount}) => {
       setCount(count - 1);
   }
 
-  const addItem = () => {
+  const addItem = (e) => {
     const keyId = ((count + 1) + title.replace(/[^a-zA-Z0-9]/g,''));
     const copyItem = [...toDos, { id: keyId, content: null, complete: false }];
     setToDos(copyItem);
     setCount(count + 1);
+    // e.currentTarget.focus();
+    console.log(e);
   }
 
   const updateItem = (userContent, e) => {
@@ -58,13 +61,15 @@ const Checklist = ({title, maxCount}) => {
       <h2 className="title">
         {title} <span className="counter">{count} von {maxCount}</span>
       </h2>
-      <ul className="list">
-        {toDos.map((item) => {
-          return (
-              <Item key={item.id} item={item} handleToggle={handleToggle} handleDeletion={handleDeletion} updateItem={updateItem} />
-            )
-          })}
-      </ul>
+      {(count > 0) ?
+        <ul className="list">
+          {toDos.map((item) => {
+            return (
+                <Item key={item.id} item={item} handleToggle={handleToggle} handleDeletion={handleDeletion} updateItem={updateItem} />
+              )
+            })}
+        </ul>
+       : <div className="emptyState">Füge dein erstes ToDo hinzu...</div> }
       {count < maxCount &&
         <button onClick={addItem}>+</button>
       } 

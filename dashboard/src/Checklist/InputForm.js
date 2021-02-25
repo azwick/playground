@@ -14,7 +14,7 @@ const InputForm = ({ updateItem }) => {
 
     return (
       <form onSubmit={handleSubmit}>
-          <input value={inputValue} type="text" onChange={handleChange} placeholder="Your ToDo..." required/>
+          <input value={inputValue} type="text" onChange={handleChange} placeholder="Benenne dein ToDo..." required/>
       </form>
     )
   }

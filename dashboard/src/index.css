@@ -56,7 +56,7 @@
   .grid {
     display: grid;
     grid-template-columns: 1fr;
-    margin-top: 50px;
+    margin-top: 80px;
     width: 100%;
   }
 

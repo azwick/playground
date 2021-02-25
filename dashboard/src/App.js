@@ -10,9 +10,9 @@ const App = () => {
       <div className="container">
         <Clock/>
         <div className="grid">
-          <Checklist title='Prio A' maxCount={5} />
-          <Checklist title='Prio B' maxCount={6} />
-          <Checklist title='Prio C' maxCount={7} />
+          <Checklist title='Prio A' maxCount={3} />
+          <Checklist title='Prio B' maxCount={3} />
+          <Checklist title='Prio C' maxCount={3} />
         </div>
       </div>
     </div>
