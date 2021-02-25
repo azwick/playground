@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 
-//components
 import Header from "./Header";
 import ToDoForm from './ToDoForm';
 import ToDoList from "./ToDoList";
-//mock data
 import data from "./data.json";
 
 function App() {
@@ -13,7 +11,7 @@ function App() {
 
   const handleToggle = (id) => {
     let mapped = toDoList.map(task => {
-      return task.id === Number(id) ? { ...task, complete: !task.complete } : { ...task};
+      return task.id == id ? { ...task, complete: !task.complete } : { ...task};
     });
     setToDoList(mapped);
   }
@@ -27,7 +25,8 @@ function App() {
 
   const addTask = (userInput ) => {
     let copy = [...toDoList];
-    copy = [...copy, { id: toDoList.length + 1, task: userInput, complete: false }];
+    const keyId = (toDoList.length + 1) + userInput.replace(/[^a-zA-Z0-9]/g,'');
+    copy = [...copy, { id: keyId, task: userInput, complete: false }];
     setToDoList(copy);
   }
 
