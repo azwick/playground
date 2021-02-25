@@ -20,7 +20,7 @@ const Checklist = ({title, maxCount}) => {
       e.preventDefault()
 
       let mapped = toDos.map(item => {
-        return (item.id === Number(e.currentTarget.parentNode.id) ? { ...item, complete: !item.complete } : { ...item});
+        return (item.id == (e.currentTarget.parentNode.id) ? { ...item, complete: !item.complete } : { ...item});
       });
       setToDos(mapped);
   }
@@ -29,15 +29,43 @@ const Checklist = ({title, maxCount}) => {
       e.preventDefault()
 
       let filteredList = toDos.filter(item => {
-        return (item.id !== Number(e.currentTarget.parentNode.id));
+        return (item.id != e.currentTarget.parentNode.id);
       });
       setToDos(filteredList);
-      setCount(count - 1); // Right place?
+      setCount(count - 1);
   }
 
-  const addItem = (newItem) => {
-    setToDos([...toDos, newItem]);
-    setCount(count + 1); // Right place?
+  // ToDo: Fix behaviour of add & update items
+  const addItem = () => {
+    let copy = [...toDos];
+    const keyId = ((count + 1) + title.replace(/[^a-zA-Z0-9]/g,''));
+    copy = [...copy, { id: keyId, content: null, complete: false }];
+    setToDos(copy);
+    setCount(count + 1);
+  }
+
+  const updateItem = (userContent) => {
+    const keyId = (((count + 1) + title + userContent).replace(/[^a-zA-Z0-9]/g,''));
+    setToDos([...toDos, { id: keyId, content: userContent, complete: false }]);
+  }
+
+  const InputForm = () => {
+    const [ inputValue, setInputValue ] = useState('');
+
+    const handleChange = (e) => {
+      setInputValue(e.currentTarget.value);
+    }
+
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      return updateItem(inputValue);
+    }
+
+    return (
+      <form onSubmit={handleSubmit}>
+          <input value={inputValue} type="text" onChange={handleChange} placeholder="Your ToDo..." required/>
+      </form>
+    )
   }
 
   return (
@@ -49,7 +77,7 @@ const Checklist = ({title, maxCount}) => {
         {toDos.map((item) => {
           return (
             <li key={item.id} id={item.id} className="item">
-              <div onClick={handleToggle} className={item.complete ? 'done' : ''}>{item.content}</div>
+              {item.content ? <div onClick={handleToggle} className={item.complete ? 'done' : ''}>{item.content}</div> : <InputForm/> }
               <span onClick={handleDeletion} className="delete">✗</span>
             </li>
             )
